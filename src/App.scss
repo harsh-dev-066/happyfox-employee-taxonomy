@@ -1,13 +1,15 @@
+@import './style/color';
+
 .root {
   width: 100%;
   height: 100vh;
   display: flex;
 
-  .sidebar-wrapper {
-    width: 30%;
+  .list-wrapper {
+    width: 35%;
   }
 
   .taxonomy-wrapper {
-    width: 70%;
+    width: 65%;
   }
 }

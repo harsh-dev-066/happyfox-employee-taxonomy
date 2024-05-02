@@ -1,0 +1,53 @@
+@import "../../style/color";
+
+.employee-list {
+  padding-bottom: 1rem;
+  border-right:  1px solid $alpha;
+  min-height: 100vh;
+
+  .employee-card {
+    font-size: 14px;
+    border: 1px solid $secondary;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+
+    .designation {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    
+    .team {
+      text-align: end;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 4px 8px 0 8px;
+
+    .search {
+    }
+
+    .filter {
+
+    }
+  }
+
+  .no-results {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+}

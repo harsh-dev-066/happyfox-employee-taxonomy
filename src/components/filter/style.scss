@@ -1,0 +1,49 @@
+@import '../../style/color';
+
+.filter-wrapper {
+  position: relative;
+  margin-right: 1rem;
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    &:hover {
+      background-color: $background-hover;
+    }
+    &.open {
+      background-color: $background-hover;
+    }
+  }
+
+  .filter-popover {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    background: $popover-background;
+    border: 1px solid $border-color;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin-top: 0.5rem;
+    height: 180px;
+    min-width: 200px;
+    overflow: auto;
+
+    .filter-item {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $item-hover-background;
+      }
+      &.selected {
+        background: $item-selected-background;
+      }
+    }
+  }
+}
