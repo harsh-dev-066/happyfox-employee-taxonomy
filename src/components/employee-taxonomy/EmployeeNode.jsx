@@ -1,27 +1,25 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-const ItemTypes = {
+const ITEM_TYPES = {
   TEAM: "team",
 };
 
-const DraggableItem = ({ data, onUpdate }) => {
-  const [cannotUpdate, setCannotUpdate] = useState();
+const DraggableElement = ({ data, onUpdate }) => {
   const [{ isDragging }, drag] = useDrag({
     item: { ...data },
-    type: ItemTypes.TEAM,
+    type: ITEM_TYPES.TEAM,
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
 
-  const [{ isOver }, drop] = useDrop({
-    accept: ItemTypes.TEAM,
-    hover(item) {
+  const [, drop] = useDrop({
+    accept: ITEM_TYPES.TEAM,
+    hover() {
       if (!dragRef.current) {
         return;
       }
-      setCannotUpdate(item);
     },
     drop(item) {
       onUpdate(item, data);
@@ -42,11 +40,6 @@ const DraggableItem = ({ data, onUpdate }) => {
         opacity: isDragging ? 0.5 : 1,
         cursor: "grab",
       }}
-      className={`default-employeechart ${
-        isOver && cannotUpdate?.data?.level !== data?.data?.level
-          ? "employeechart"
-          : ""
-      }  `}
     >
       <div className="node">
         <div>
@@ -68,8 +61,12 @@ const EmployeeNode = ({ data, onUpdate }) => {
     <ul>
       {data?.map((item) => {
         return (
-          <li className="card" key={item?.id}>
-            <DraggableItem data={item} index={item?.id} onUpdate={onUpdate} />
+          <li key={item?.id}>
+            <DraggableElement
+              data={item}
+              index={item?.id}
+              onUpdate={onUpdate}
+            />
             {item?.children?.length > 0 && (
               <EmployeeNode data={item.children} onUpdate={onUpdate} />
             )}
