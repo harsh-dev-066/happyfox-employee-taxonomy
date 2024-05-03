@@ -21,6 +21,7 @@ const Filter: React.FC<FilterProps> = ({ filterOptions, onSelectFilter }) => {
   return (
     <div className="filter-wrapper">
       <button
+        data-testid="filter"
         className={`${showOptions ? "open" : ""}`}
         onClick={() => setShowOptions((prev) => !prev)}
       >

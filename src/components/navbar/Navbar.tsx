@@ -4,7 +4,7 @@ interface Props {
   title: string;
 }
 
-const Header: React.FC<Props> = ({ title }) => {
+const Navbar: React.FC<Props> = ({ title }) => {
   return (
     <div className="navbar">
       <div className="title">{title}</div>
@@ -12,4 +12,4 @@ const Header: React.FC<Props> = ({ title }) => {
   );
 };
 
-export default Header;
+export default Navbar;
