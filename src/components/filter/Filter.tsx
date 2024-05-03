@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaFilter } from "react-icons/fa";
+import { TfiFilter } from "react-icons/tfi";
 import "./style.scss";
 
 interface FilterProps {
@@ -23,7 +24,7 @@ const Filter: React.FC<FilterProps> = ({ filterOptions, onSelectFilter }) => {
         className={`${showOptions ? "open" : ""}`}
         onClick={() => setShowOptions((prev) => !prev)}
       >
-        <FaFilter />
+        {selected ? <FaFilter /> : <TfiFilter />}
       </button>
       {showOptions && (
         <div className="filter-popover">

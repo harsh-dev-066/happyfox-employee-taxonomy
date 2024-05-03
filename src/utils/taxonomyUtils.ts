@@ -21,4 +21,19 @@ const generateEmployeeTree = (employees: Employee[]): EmployeeNode[] => {
   }, [] as EmployeeNode[]);
 };
 
-export { generateEmployeeTree };
+const updateEmployee = (
+  source: EmployeeNode,
+  target: EmployeeNode,
+  employeeList: Employee[]
+): Employee[] => {
+  return employeeList.map((employee) => {
+    if (employee.id === source.id) {
+      return source;
+    } else if (employee.id === target.id) {
+      return target;
+    }
+    return employee;
+  });
+};
+
+export { generateEmployeeTree, updateEmployee };

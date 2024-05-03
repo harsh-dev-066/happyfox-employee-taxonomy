@@ -3,8 +3,8 @@
 .employee-list {
   padding-bottom: 1rem;
   border-right:  1px solid $alpha;
-  height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
 
   .actions {
     display: flex;

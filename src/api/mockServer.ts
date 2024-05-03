@@ -20,12 +20,17 @@ export function setupServer() {
         return schema.employees.all();
       });
 
-      this.post("/employees/:id/update-manager", (schema, request) => {
+      this.put("/employees/:id/update-manager", (schema, request) => {
         const id = request.params.id;
         const newManagerId = JSON.parse(request.requestBody).managerId;
+        const newTeam = JSON.parse(request.requestBody).team;
         const employee = schema.employees.find(id);
-        employee.update({ managerId: newManagerId });
-        return employee;
+        const newManager = schema.employees.find(newManagerId);
+        if (id === newManager?.managerId) {
+          newManager.update({ managerId: employee.managerId });
+        }
+        employee.update({ managerId: newManagerId, team: newTeam });
+        return { employee, newManager };
       });
     },
   });

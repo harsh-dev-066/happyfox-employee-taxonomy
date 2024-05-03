@@ -3,9 +3,7 @@
 .root {
   width: 100%;
   display: flex;
-  height: calc(100vh - 55px);
-  overflow-y: hidden;
-  overflow-x: auto;
+  height: calc(100% - 60px);
 
 
   .list-wrapper {

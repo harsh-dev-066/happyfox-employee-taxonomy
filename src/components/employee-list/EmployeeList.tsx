@@ -1,44 +1,46 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import { setEmployees, setTaxonomy } from "../../redux/employeeSlice";
 import SearchBox from "../search-box/SearchBox";
 import "./style.scss";
 import Filter from "../filter/Filter";
 import { generateEmployeeTree } from "../../utils/taxonomyUtils";
-import { Employee } from "../../types/types";
 
 const EmployeeList: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const employees = useSelector((state: RootState) => state.employee.employees);
   const [search, setSearch] = useState<string>("");
+  const [appliedFilter, setAppliedFilter] = useState<string>("");
 
   const fetchEmployees = useCallback(async () => {
     try {
       const response = await axios.get("/api/employees");
       dispatch(setEmployees(response.data.employees));
     } catch (error) {
-      console.error("Failed to fetch employees:", error);
+      console.error("Failed to fetch employees", error);
     }
   }, [dispatch]);
 
-  const updateTaxonomy = useCallback(
-    (currentEmployees: Employee[]) => {
-      const employeeTaxonomy = generateEmployeeTree(currentEmployees);
-      console.log({ currentEmployees, employeeTaxonomy });
+  const updateTaxonomy = useCallback(() => {
+    let currentEmployees = [...employees];
+    if (appliedFilter) {
+      currentEmployees = employees?.filter(
+        (emp) => emp.team?.includes(appliedFilter) || emp.id === "1"
+      );
+    }
+    const employeeTaxonomy = generateEmployeeTree(currentEmployees);
 
-      dispatch(setTaxonomy(employeeTaxonomy));
-    },
-    [dispatch]
-  );
+    dispatch(setTaxonomy(employeeTaxonomy));
+  }, [dispatch, employees, appliedFilter]);
 
   useEffect(() => {
     fetchEmployees();
   }, [fetchEmployees]);
 
   useEffect(() => {
-    updateTaxonomy(employees);
+    updateTaxonomy();
   }, [employees, updateTaxonomy]);
 
   const handleSearch = (value: string) => {
@@ -46,18 +48,16 @@ const EmployeeList: React.FC = () => {
   };
 
   const handleFilter = (filter: string) => {
-    setSearch(filter);
-    const filteredEmployees = employees?.filter(
-      (emp) => emp.team?.includes(filter) || emp.id === "1"
-    );
-    updateTaxonomy(filteredEmployees);
+    setAppliedFilter(filter);
+    updateTaxonomy();
   };
 
   const filteredEmployees = employees.filter(
     (employee) =>
       employee.name.toLowerCase().includes(search.toLowerCase()) ||
       employee.designation.toLowerCase().includes(search.toLowerCase()) ||
-      employee.team.toLowerCase().includes(search.toLowerCase())
+      employee.team.toLowerCase().includes(search.toLowerCase()) ||
+      employee.team.toLowerCase().includes(appliedFilter.toLowerCase())
   );
 
   return (
