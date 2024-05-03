@@ -14,7 +14,7 @@
 				position: absolute;
 				top: 0;
 				left: 50%;
-				border-left: 2px solid #ccc;
+				border-left: 2px solid $secondary-gray;
 				width: 0;
 				height: 20px;
 			}
@@ -33,14 +33,14 @@
 		&::after {
 			right: auto;
 			left: 50%;
-			border-left: 2px solid #ccc;
+			border-left: 2px solid $secondary-gray;
 		}
 		&:only-child {
 			padding-top: 0;
 		}
 		&:last-child {
 			&::before {
-				border-right: 2px solid #ccc;
+				border-right: 2px solid $secondary-gray;
 				border-radius: 0 5px 0 0;
 			}
 		}
@@ -52,7 +52,7 @@
 	}
 
   .node {
-    box-shadow: 0 7px 29px rgba(100, 100, 111, 0.2);
+    box-shadow: 0 7px 29px $node-shadow;
     border-radius: 4px;
     width: 120px;
     height: 135px;
@@ -86,7 +86,7 @@
 	position: absolute;
 	top: 0;
 	right: 50%;
-	border-top: 2px solid #ccc;
+	border-top: 2px solid $secondary-gray;
 	width: 50%;
 	height: 20px;
 }

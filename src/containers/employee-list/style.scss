@@ -18,7 +18,7 @@
     .employee-card {
       font-size: 14px;
       border: 1px solid $secondary;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      box-shadow: $card-shadow;
       padding: 8px;
       margin: 8px;
       border-radius: 4px;
