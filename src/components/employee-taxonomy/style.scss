@@ -1,0 +1,117 @@
+.taxonomy ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+.taxonomy li {
+  display: inherit;
+  flex-grow: 1;
+  padding: 40px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.taxonomy ul {
+  padding-top: 20px;
+  position: relative;
+  width: 90%;
+}
+
+.taxonomy li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.taxonomy li::before,
+.taxonomy li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 1px solid #ccc;
+  width: 50%;
+  height: 20px;
+}
+.taxonomy li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid #ccc;
+}
+
+.taxonomy li:only-child::after,
+.taxonomy li:only-child::before {
+  display: none;
+}
+
+.taxonomy li:only-child {
+  padding-top: 0;
+}
+
+.taxonomy li:first-child::before,
+.taxonomy li:last-child::after {
+  border: 0 none;
+}
+
+.taxonomy li:last-child::before {
+  border-right: 1px solid #ccc;
+  border-radius: 0 5px 0 0;
+}
+.taxonomy li:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+
+.taxonomy ul ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 1px solid #ccc;
+  width: 0;
+  height: 20px;
+}
+
+.card {
+  width: 50%;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+}
+
+.employeechart-card {
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.employeechart-card img {
+  object-fit: contain;
+  width: 150px;
+  height: 150px;
+}
+
+.default-employeechart > section {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+}
+.default-employeechart > section > div {
+  align-items: center;
+}
+.default-employeechart > section > div {
+  flex-grow: 1;
+}
+
+.employeechart > section {
+  background-color: lightgray;
+}
+
+.employeechart-disabled > section {
+  opacity: 0.5;
+}

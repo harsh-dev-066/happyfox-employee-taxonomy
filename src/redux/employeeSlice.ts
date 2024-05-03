@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Employee } from "../types/types";
+import { Employee, EmployeeNode } from "../types/types";
 
 interface EmployeeState {
   employees: Employee[];
+  taxonomy: EmployeeNode[];
 }
 
 const initialState: EmployeeState = {
   employees: [],
+  taxonomy: [],
 };
 
 export const employeeSlice = createSlice({
@@ -27,8 +29,13 @@ export const employeeSlice = createSlice({
         state.employees[index].managerId = action.payload.managerId;
       }
     },
+    setTaxonomy: (state, action: PayloadAction<EmployeeNode[]>) => {
+      state.taxonomy = action.payload;
+    },
   },
 });
 
-export const { setEmployees, updateManager } = employeeSlice.actions;
+export const { setEmployees, updateManager, setTaxonomy } =
+  employeeSlice.actions;
+
 export default employeeSlice.reducer;
