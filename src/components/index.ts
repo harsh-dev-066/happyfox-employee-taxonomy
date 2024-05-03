@@ -1,5 +1,5 @@
-import EmployeeTaxonomy from "./employee-taxonomy/EmployeeTaxonomy";
-import EmployeeList from "./employee-list/EmployeeList";
 import Navbar from "./navbar/Navbar";
+import SearchBox from "./search-box/SearchBox";
+import Filter from "./filter/Filter";
 
-export { EmployeeTaxonomy, EmployeeList, Navbar };
+export { Navbar, SearchBox, Filter };

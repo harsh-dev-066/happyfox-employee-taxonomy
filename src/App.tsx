@@ -1,13 +1,14 @@
 import "./App.scss";
 import { setupServer } from "./api/mockServer.js";
-import { Navbar, EmployeeList, EmployeeTaxonomy } from "./components";
+import { Navbar } from "./components";
+import { EmployeeList, EmployeeTaxonomy } from "./containers";
 
 function App() {
   setupServer();
 
   return (
     <div>
-      <Navbar title="Employee Taxonomy - HappyFox" />
+      <Navbar title="Employee Taxonomy - HappyFox Assesment" />
       <div className="root">
         {/* Let Panel */}
         <div className="list-wrapper">

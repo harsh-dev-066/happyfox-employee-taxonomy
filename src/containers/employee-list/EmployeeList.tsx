@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { AppDispatch, RootState } from "../../redux/store";
 import { setEmployees, setTaxonomy } from "../../redux/employeeSlice";
-import SearchBox from "../search-box/SearchBox";
-import "./style.scss";
-import Filter from "../filter/Filter";
+import { SearchBox, Filter } from "../../components";
 import { generateEmployeeTree } from "../../utils/taxonomyUtils";
+import "./style.scss";
 
 const EmployeeList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
