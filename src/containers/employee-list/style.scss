@@ -1,10 +1,9 @@
 @import "../../style/color";
 
 .employee-list {
-  padding-bottom: 1rem;
   border-right:  1px solid $alpha;
-  overflow-y: auto;
   overflow-x: hidden;
+  height: 100%;
 
   .actions {
     display: flex;
@@ -15,6 +14,7 @@
   }
   
   .employees {
+  padding-bottom: 1rem;
     .employee-card {
       font-size: 14px;
       border: 1px solid $secondary;
