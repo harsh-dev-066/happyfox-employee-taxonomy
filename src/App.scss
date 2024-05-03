@@ -4,7 +4,8 @@
   width: 100%;
   display: flex;
   height: calc(100vh - 55px);
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: auto;
 
 
   .list-wrapper {
@@ -13,7 +14,10 @@
   }
 
   .taxonomy-wrapper {
-    width: 70%;
-
+    width: 100%;
+    background: radial-gradient(circle, $secondary 10%, transparent 11%);
+    background-size: 1em 1em;
+    background-color: $white;
+    opacity: 1;
   }
 }

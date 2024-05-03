@@ -48,8 +48,17 @@ const DraggableItem = ({ data, onUpdate }) => {
           : ""
       }  `}
     >
-      {/* <EmployeeCard employList={data.data} /> */}
-      {data?.name}
+      <div className="node">
+        <div>
+          <div className="image">
+            <img alt={data?.id} src={data?.image} />
+          </div>
+          <div>
+            <div className="name"> {data?.name} </div>
+            <div className="designation"> {data?.designation} </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
