@@ -10,7 +10,10 @@ const generateEmployeeTree = (employees: Employee[]): EmployeeNode[] => {
   return employees.reduce((tree, employee) => {
     const node = employeeMap.get(employee.id);
     if (node && employee.managerId) {
-      const managerNode = employeeMap.get(employee.managerId);
+      let managerNode = employeeMap.get(employee.managerId);
+      if (!managerNode && employee.managerId !== "1") {
+        managerNode = employeeMap.get("1");
+      }
       if (managerNode) {
         managerNode.children.push(node);
       }

@@ -75,7 +75,7 @@ const EMPLOYEES = [
     id: "10",
     name: "Erica Reel",
     designation: "Chief Customer Officer",
-    team: "Accounts",
+    team: "Business",
     managerId: "3",
     image: "https://randomuser.me/api/portraits/women/67.jpg",
   },
