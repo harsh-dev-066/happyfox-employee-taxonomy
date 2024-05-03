@@ -1,6 +1,7 @@
 import { createServer, Model } from "miragejs";
 import { EMPLOYEES } from "./mockData";
 
+// Keeping file in js for avoiding issues of miragejs with typescript compatibility.
 export function setupServer() {
   createServer({
     models: {
