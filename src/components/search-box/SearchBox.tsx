@@ -42,7 +42,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
 
   return (
     <div className={`search-box ${className}`}>
-      <button onClick={handleSearchClick}>
+      <button data-testid="search-button" onClick={handleSearchClick}>
         <CiSearch />
       </button>
       <input
@@ -55,7 +55,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         onKeyDown={handleKeyDown}
       />
       {search?.length > 0 && (
-        <button onClick={handleSearchClear}>
+        <button data-testid="clear-button" onClick={handleSearchClear}>
           <MdClear />
         </button>
       )}
