@@ -47,6 +47,7 @@ const EmployeeList: React.FC = () => {
   };
 
   const handleFilter = (filter: string) => {
+    setSearch(filter);
     setAppliedFilter(filter);
     updateTaxonomy();
   };
@@ -55,8 +56,7 @@ const EmployeeList: React.FC = () => {
     (employee) =>
       employee.name.toLowerCase().includes(search.toLowerCase()) ||
       employee.designation.toLowerCase().includes(search.toLowerCase()) ||
-      employee.team.toLowerCase().includes(search.toLowerCase()) ||
-      employee.team.toLowerCase().includes(appliedFilter.toLowerCase())
+      employee.team.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
