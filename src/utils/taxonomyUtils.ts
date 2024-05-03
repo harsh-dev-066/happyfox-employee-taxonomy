@@ -3,12 +3,10 @@ import { Employee, EmployeeNode } from "../types/types";
 const generateEmployeeTree = (employees: Employee[]): EmployeeNode[] => {
   const employeeMap = new Map<string, EmployeeNode>();
 
-  // Create a node for each employee and map them by ID
   employees.forEach((employee) => {
     employeeMap.set(employee.id, { ...employee, children: [] });
   });
 
-  // Build the tree by assigning children to their respective managers
   return employees.reduce((tree, employee) => {
     const node = employeeMap.get(employee.id);
     if (node && employee.managerId) {
@@ -17,9 +15,25 @@ const generateEmployeeTree = (employees: Employee[]): EmployeeNode[] => {
         managerNode.children.push(node);
       }
     } else if (node) {
-      tree.push(node); // Root nodes (employees without a manager)
+      tree.push(node);
     }
     return tree;
   }, [] as EmployeeNode[]);
 };
-export { generateEmployeeTree };
+
+const updateEmployee = (
+  source: EmployeeNode,
+  target: EmployeeNode,
+  employeeList: Employee[]
+): Employee[] => {
+  return employeeList.map((employee) => {
+    if (employee.id === source.id) {
+      return source;
+    } else if (employee.id === target.id) {
+      return target;
+    }
+    return employee;
+  });
+};
+
+export { generateEmployeeTree, updateEmployee };

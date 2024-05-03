@@ -1,6 +1,6 @@
 import "./App.scss";
-import { setupServer } from "./api/mockServer";
-import { EmployeeTaxonomy, Navbar, EmployeeList } from "./components";
+import { setupServer } from "./api/mockServer.js";
+import { Navbar, EmployeeList, EmployeeTaxonomy } from "./components";
 
 function App() {
   setupServer();

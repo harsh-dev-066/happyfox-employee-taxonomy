@@ -1,0 +1,100 @@
+@import '../../style/color';
+
+.taxonomy {
+	ul {
+		display: flex;
+		flex-direction: row;
+		padding: 0;
+		position: relative;
+		padding-top: 20px;
+		width: 90%;
+		ul {
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				border-left: 2px solid #ccc;
+				width: 0;
+				height: 20px;
+			}
+		}
+	}
+	li {
+		display: inherit;
+		flex-grow: 1;
+		align-items: center;
+		flex-direction: column;
+		float: left;
+		list-style-type: none;
+		position: relative;
+		padding: 20px 8px;
+		margin: 0 auto;
+		&::after {
+			right: auto;
+			left: 50%;
+			border-left: 2px solid #ccc;
+		}
+		&:only-child {
+			padding-top: 0;
+		}
+		&:last-child {
+			&::before {
+				border-right: 2px solid #ccc;
+				border-radius: 0 5px 0 0;
+			}
+		}
+		&:first-child {
+			&::after {
+				border-radius: 5px 0 0 0;
+			}
+		}
+	}
+
+  .node {
+    box-shadow: 0 7px 29px rgba(100, 100, 111, 0.2);
+    border-radius: 4px;
+    width: 120px;
+    height: 135px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: $white;
+    padding: 4px;
+    padding-top: 12px;
+    
+    .designation {
+      font-size: 10px;
+    }
+
+    .image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 4px;
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+
+    }
+  }
+}
+.taxonomy li::before,
+.taxonomy li::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 2px solid #ccc;
+	width: 50%;
+	height: 20px;
+}
+.taxonomy li:only-child::after,
+.taxonomy li:only-child::before {
+	display: none;
+}
+.taxonomy li:first-child::before,
+.taxonomy li:last-child::after {
+	border: 0 none;
+}

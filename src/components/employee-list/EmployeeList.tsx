@@ -1,43 +1,63 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { RootState } from "../../redux/store";
-import { setEmployees } from "../../redux/employeeSlice";
+import { AppDispatch, RootState } from "../../redux/store";
+import { setEmployees, setTaxonomy } from "../../redux/employeeSlice";
 import SearchBox from "../search-box/SearchBox";
 import "./style.scss";
 import Filter from "../filter/Filter";
+import { generateEmployeeTree } from "../../utils/taxonomyUtils";
 
 const EmployeeList: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const employees = useSelector((state: RootState) => state.employee.employees);
   const [search, setSearch] = useState<string>("");
+  const [appliedFilter, setAppliedFilter] = useState<string>("");
+
+  const fetchEmployees = useCallback(async () => {
+    try {
+      const response = await axios.get("/api/employees");
+      dispatch(setEmployees(response.data.employees));
+    } catch (error) {
+      console.error("Failed to fetch employees", error);
+    }
+  }, [dispatch]);
+
+  const updateTaxonomy = useCallback(() => {
+    let currentEmployees = [...employees];
+    if (appliedFilter) {
+      currentEmployees = employees?.filter(
+        (emp) => emp.team?.includes(appliedFilter) || emp.id === "1"
+      );
+    }
+    const employeeTaxonomy = generateEmployeeTree(currentEmployees);
+
+    dispatch(setTaxonomy(employeeTaxonomy));
+  }, [dispatch, employees, appliedFilter]);
 
   useEffect(() => {
-    const fetchEmployees = async () => {
-      try {
-        const response = await axios.get("/api/employees");
-        dispatch(setEmployees(response.data.employees));
-      } catch (error) {
-        console.error("Failed to fetch employees:", error);
-      }
-    };
-
     fetchEmployees();
-  }, [dispatch]);
+  }, [fetchEmployees]);
+
+  useEffect(() => {
+    updateTaxonomy();
+  }, [employees, updateTaxonomy]);
 
   const handleSearch = (value: string) => {
     setSearch(value.toLowerCase());
   };
 
   const handleFilter = (filter: string) => {
-    setSearch(filter);
+    setAppliedFilter(filter);
+    updateTaxonomy();
   };
 
   const filteredEmployees = employees.filter(
     (employee) =>
       employee.name.toLowerCase().includes(search.toLowerCase()) ||
       employee.designation.toLowerCase().includes(search.toLowerCase()) ||
-      employee.team.toLowerCase().includes(search.toLowerCase())
+      employee.team.toLowerCase().includes(search.toLowerCase()) ||
+      employee.team.toLowerCase().includes(appliedFilter.toLowerCase())
   );
 
   return (
@@ -57,19 +77,21 @@ const EmployeeList: React.FC = () => {
           />
         </div>
       </div>
-      {filteredEmployees.length > 0 ? (
-        filteredEmployees.map((employee) => (
-          <div key={employee.id} className="employee-card">
-            <div className="info">
-              <div>{employee.name}</div>
-              <div className="designation">{employee.designation}</div>
+      <div className="employees">
+        {filteredEmployees.length > 0 ? (
+          filteredEmployees.map((employee) => (
+            <div key={employee.id} className="employee-card">
+              <div className="info">
+                <div>{employee.name}</div>
+                <div className="designation">{employee.designation}</div>
+              </div>
+              <div className="team">{employee.team}</div>
             </div>
-            <div className="team">{employee.team}</div>
-          </div>
-        ))
-      ) : (
-        <div className="no-results">No results found.</div>
-      )}
+          ))
+        ) : (
+          <div className="no-results">No results found.</div>
+        )}
+      </div>
     </div>
   );
 };

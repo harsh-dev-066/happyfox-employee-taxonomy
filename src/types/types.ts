@@ -4,6 +4,7 @@ type Employee = {
   designation: string;
   team: string;
   managerId: string | null;
+  image: string;
 };
 
 type EmployeeNode = {
@@ -12,6 +13,7 @@ type EmployeeNode = {
   designation: string;
   team: string;
   managerId: string | null;
+  image: string;
   children: EmployeeNode[];
 };
 

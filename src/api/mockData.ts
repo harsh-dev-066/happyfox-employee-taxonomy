@@ -5,6 +5,7 @@ const EMPLOYEES = [
     designation: "Chief Executive Officer",
     team: "Executive",
     managerId: null,
+    image: "https://randomuser.me/api/portraits/men/10.jpg",
   },
   {
     id: "2",
@@ -12,6 +13,7 @@ const EMPLOYEES = [
     designation: "Chief Technology Officer",
     team: "Technology",
     managerId: "1",
+    image: "https://randomuser.me/api/portraits/men/53.jpg",
   },
   {
     id: "3",
@@ -19,6 +21,7 @@ const EMPLOYEES = [
     designation: "Chief Business Officer",
     team: "Business",
     managerId: "1",
+    image: "https://randomuser.me/api/portraits/women/29.jpg",
   },
   {
     id: "4",
@@ -26,6 +29,7 @@ const EMPLOYEES = [
     designation: "Chief Information Security Officer",
     team: "Technology",
     managerId: "2",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
   },
   {
     id: "5",
@@ -33,6 +37,7 @@ const EMPLOYEES = [
     designation: "Chief Communications Officer",
     team: "Business",
     managerId: "3",
+    image: "https://randomuser.me/api/portraits/women/65.jpg",
   },
   {
     id: "6",
@@ -40,6 +45,7 @@ const EMPLOYEES = [
     designation: "Chief Innovation Officer",
     team: "Technology",
     managerId: "2",
+    image: "https://randomuser.me/api/portraits/men/18.jpg",
   },
   {
     id: "7",
@@ -47,6 +53,7 @@ const EMPLOYEES = [
     designation: "Chief Brand Officer",
     team: "Business",
     managerId: "3",
+    image: "https://randomuser.me/api/portraits/women/70.jpg",
   },
   {
     id: "8",
@@ -54,6 +61,7 @@ const EMPLOYEES = [
     designation: "Chief Business Development Officer",
     team: "Business",
     managerId: "3",
+    image: "https://randomuser.me/api/portraits/men/91.jpg",
   },
   {
     id: "9",
@@ -61,6 +69,7 @@ const EMPLOYEES = [
     designation: "Chief Accounting Officer",
     team: "Accounts",
     managerId: "1",
+    image: "https://randomuser.me/api/portraits/men/60.jpg",
   },
   {
     id: "10",
@@ -68,6 +77,7 @@ const EMPLOYEES = [
     designation: "Chief Customer Officer",
     team: "Accounts",
     managerId: "3",
+    image: "https://randomuser.me/api/portraits/women/67.jpg",
   },
 ];
 
