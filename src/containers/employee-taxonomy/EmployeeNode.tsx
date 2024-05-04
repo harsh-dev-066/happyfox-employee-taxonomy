@@ -12,6 +12,7 @@ interface DraggableElementProps {
   onUpdate: (item: EmployeeNodeType, data: EmployeeNodeType) => void;
 }
 
+// Defined Items for react-dnd
 const ITEM_TYPES = {
   TEAM: "team",
 };
@@ -20,6 +21,7 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
   data,
   onUpdate,
 }) => {
+  // react-dnd useDrag hook setup
   const [{ isDragging }, drag] = useDrag({
     item: { ...data },
     type: ITEM_TYPES.TEAM,
@@ -28,6 +30,7 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
     }),
   });
 
+  // react-dnd useDrop hook setup
   const [, drop] = useDrop({
     accept: ITEM_TYPES.TEAM,
     hover() {
@@ -44,6 +47,7 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
     }),
   });
 
+  // dragRef for react-dnd
   const dragRef = useRef<HTMLDivElement>(null);
   drag(drop(dragRef));
 

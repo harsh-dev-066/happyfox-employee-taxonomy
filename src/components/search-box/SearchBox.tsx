@@ -16,8 +16,10 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   onSearch,
   className = "",
 }) => {
+  // Component State
   const [search, setSearch] = useState<string>("");
 
+  // Handle search functions
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearch(value);

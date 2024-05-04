@@ -1,5 +1,11 @@
 import { Employee, EmployeeNode } from "../types/types";
 
+/**
+ * Transformation function for employee taxonomy data
+ * @param {Employee[]} employees - Employees list
+ * @returns {EmployeeNode[]} - Employees taxonomy data
+ *
+ */
 const generateEmployeeTree = (employees: Employee[]): EmployeeNode[] => {
   const employeeMap = new Map<string, EmployeeNode>();
 
@@ -24,6 +30,14 @@ const generateEmployeeTree = (employees: Employee[]): EmployeeNode[] => {
   }, [] as EmployeeNode[]);
 };
 
+/**
+ * Transformation function for employee taxonomy data
+ * @param {EmployeeNode} source - Dragged employee/node data
+ * @param {EmployeeNode} target - Dropped employee/node data
+ * @param {Employee[]} employeeList - Employees list
+ * @returns {Employee[]} - Updated Employees list
+ *
+ */
 const updateEmployee = (
   source: EmployeeNode,
   target: EmployeeNode,

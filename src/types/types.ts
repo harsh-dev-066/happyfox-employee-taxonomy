@@ -1,3 +1,4 @@
+// TS Types
 type Employee = {
   id: string;
   name: string;

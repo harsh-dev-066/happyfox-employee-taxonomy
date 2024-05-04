@@ -11,6 +11,7 @@ const initialState: EmployeeState = {
   taxonomy: [],
 };
 
+// Employee redux actions
 export const employeeSlice = createSlice({
   name: "employee",
   initialState,

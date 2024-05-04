@@ -9,9 +9,11 @@ interface FilterProps {
 }
 
 const Filter: React.FC<FilterProps> = ({ filterOptions, onSelectFilter }) => {
+  // Component state
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [selected, setSelected] = useState<string>("");
 
+  // Handle filter functions
   const handleFilter = (filter: string): void => {
     setSelected(filter);
     if (onSelectFilter) onSelectFilter(filter);

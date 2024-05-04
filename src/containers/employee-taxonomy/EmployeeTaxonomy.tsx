@@ -10,12 +10,14 @@ import { RootState } from "../../redux/store";
 import "./style.scss";
 
 const EmployeeTaxonomy: React.FC = () => {
+  // Redux
   const dispatch = useDispatch();
   const employees = useSelector((state: RootState) => state.employee.employees);
   const employeeTaxonomy = useSelector(
     (state: RootState) => state.employee.taxonomy
   );
 
+  // Employee manager update api function
   const onUpdateEmployee = async (
     source: EmployeeNodeType,
     target: EmployeeNodeType

@@ -8,11 +8,15 @@ import { generateEmployeeTree } from "../../utils/taxonomyUtils";
 import "./style.scss";
 
 const EmployeeList: React.FC = () => {
+  // Redux
   const dispatch = useDispatch<AppDispatch>();
   const employees = useSelector((state: RootState) => state.employee.employees);
+
+  // Component State
   const [search, setSearch] = useState<string>("");
   const [appliedFilter, setAppliedFilter] = useState<string>("");
 
+  // Fetch employees from api
   const fetchEmployees = useCallback(async () => {
     try {
       const response = await axios.get("/api/employees");
@@ -22,6 +26,7 @@ const EmployeeList: React.FC = () => {
     }
   }, [dispatch]);
 
+  // Constructing taxonomy data using employees list
   const updateTaxonomy = useCallback(() => {
     let currentEmployees = [...employees];
     if (appliedFilter) {
@@ -34,14 +39,6 @@ const EmployeeList: React.FC = () => {
     dispatch(setTaxonomy(employeeTaxonomy));
   }, [dispatch, employees, appliedFilter]);
 
-  useEffect(() => {
-    fetchEmployees();
-  }, [fetchEmployees]);
-
-  useEffect(() => {
-    updateTaxonomy();
-  }, [employees, updateTaxonomy]);
-
   const handleSearch = (value: string) => {
     setSearch(value.toLowerCase());
   };
@@ -52,6 +49,16 @@ const EmployeeList: React.FC = () => {
     updateTaxonomy();
   };
 
+  // useEffects
+  useEffect(() => {
+    fetchEmployees();
+  }, [fetchEmployees]);
+
+  useEffect(() => {
+    updateTaxonomy();
+  }, [employees, updateTaxonomy]);
+
+  // Filtering list based on search
   const filteredEmployees = employees.filter(
     (employee) =>
       employee.name.toLowerCase().includes(search.toLowerCase()) ||
