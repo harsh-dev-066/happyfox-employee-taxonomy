@@ -27,11 +27,13 @@ The application is deployed on Netlify - [Employee Taxonomy](https://happyfox-em
 
   - Easy Manager Updates (Drag and Drop!):
 
-      The system lets users easily update who an employee reports to. By Simply,
+      The system lets users easily update who an employee reports to by simple steps,
 
-      Click and hold the box of the employee you want to change the manager for.
-      Drag the employee box to the box of their new manager.
-      Drop the employee box on the new manager's box.
+      - Click and hold the box of the employee you want to change the manager for.
+
+      - Drag the employee box to the box of their new manager.
+
+      - Drop the employee box on the new manager's box.
   
   - Circular Reporting Scenario:
 
