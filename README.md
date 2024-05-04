@@ -8,6 +8,8 @@ In this application a user can visualize and update an employee organization cha
 
 The application is deployed on Netliy - [Employee Taxonomy](https://happyfox-employee-taxonomy.netlify.app/)
 
+![Image](/public/Employee%20Taxonomy.png)
+
 ## Features
 ### Employee Listing - 
 
