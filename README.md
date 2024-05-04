@@ -1,29 +1,33 @@
-# Employee Taxonomy - HappyFox Assesment
+# Employee Taxonomy - HappyFox Assessment
 
 
 ## About 
-This is a project based on a HappyFox assesment for Frontend Engineer postion.
+This is a project based on a HappyFox assessment for Frontend Engineer position.
 
 In this application a user can visualize and update an employee organization chart interactively with filtering and drag & drop functionality.
 
-The application is deployed on Netliy - [Employee Taxonomy](https://happyfox-employee-taxonomy.netlify.app/)
+The application is deployed on Netlify - [Employee Taxonomy](https://happyfox-employee-taxonomy.netlify.app/)
+
+[Project Demo Video](https://youtu.be/U9qadOzUCYw)
 
 ![Image](/public/Employee%20Taxonomy.png)
+
+
 
 ## Features
 ### Employee Listing - 
 
-  List of employees pulled from an API enpoint. Showing employees details - Name, Designation and Team. 
+  List of employees pulled from an API endpoint. Showing employees details - Name, Designation and Team. 
 
-  List also containes a search by any employee properties and filter by a specific team. On filtering by team in list also renders the taxonomy for that team on right side.
+  List also contains a search by any employee properties and filter by a specific team. Filtering by team in the list also renders the taxonomy for that team on the right side.
 
 ### Employee Taxonomy / Tree View - 
 
-  Based on employee's manager hierarchy a taxonomy is generated in a tree view.
+  Based on the employee's manager hierarchy a taxonomy is generated in a tree view.
 
   - Easy Manager Updates (Drag and Drop!):
 
-      The system lets user to easily update who an employee reports to. By Simply,
+      The system lets users easily update who an employee reports to. By Simply,
 
       Click and hold the box of the employee you want to change the manager for.
       Drag the employee box to the box of their new manager.
