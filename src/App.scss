@@ -12,12 +12,12 @@
   
   
     .list-wrapper {
-      width: 25%;
+      min-width: 23%;
   
     }
   
     .taxonomy-wrapper {
-      width: 75%;
+      width: 100%;
       background: radial-gradient(circle, $secondary 10%, transparent 11%);
       background-size: 1em 1em;
       background-color: $white;
