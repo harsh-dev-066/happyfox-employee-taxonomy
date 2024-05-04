@@ -1,22 +1,28 @@
 @import './style/color';
 
-.root {
-  width: 100%;
-  display: flex;
-  height: calc(100% - 60px);
 
-
-  .list-wrapper {
-    width: 30%;
-
-  }
-
-  .taxonomy-wrapper {
+.app {
+  width: max-content;
+  min-width: 100%;
+  
+  .root {
     width: 100%;
-    background: radial-gradient(circle, $secondary 10%, transparent 11%);
-    background-size: 1em 1em;
-    background-color: $white;
-    opacity: 1;
-    min-height: calc(100vh - 60px);
+    display: flex;
+    height: calc(100% - 60px);
+  
+  
+    .list-wrapper {
+      width: 25%;
+  
+    }
+  
+    .taxonomy-wrapper {
+      width: 75%;
+      background: radial-gradient(circle, $secondary 10%, transparent 11%);
+      background-size: 1em 1em;
+      background-color: $white;
+      opacity: 1;
+      min-height: calc(100vh - 60px);
+    }
   }
 }

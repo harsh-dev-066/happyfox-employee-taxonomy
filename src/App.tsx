@@ -7,7 +7,7 @@ function App() {
   setupServer();
 
   return (
-    <div>
+    <div className="app">
       <Navbar title="Employee Taxonomy - HappyFox Assesment" />
       <div className="root">
         {/* Let Panel */}
