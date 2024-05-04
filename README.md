@@ -1,30 +1,65 @@
-# React + TypeScript + Vite
+# Employee Taxonomy - HappyFox Assesment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## About 
+This is a project based on a HappyFox assesment for Frontend Engineer postion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In this application a user can visualize and update an employee organization chart interactively with filtering and drag & drop functionality.
 
-## Expanding the ESLint configuration
+The application is deployed on Netliy - [Employee Taxonomy](https://happyfox-employee-taxonomy.netlify.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
+### Employee Listing - 
 
-- Configure the top-level `parserOptions` property like this:
+  List of employees pulled from an API enpoint. Showing employees details - Name, Designation and Team. 
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+  List also containes a search by any employee properties and filter by a specific team. On filtering by team in list also renders the taxonomy for that team on right side.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Employee Taxonomy / Tree View - 
+
+  Based on employee's manager hierarchy a taxonomy is generated in a tree view.
+
+  - Easy Manager Updates (Drag and Drop!):
+
+      The system lets user to easily update who an employee reports to. By Simply,
+
+      Click and hold the box of the employee you want to change the manager for.
+      Drag the employee box to the box of their new manager.
+      Drop the employee box on the new manager's box.
+  
+  - Circular Reporting Scenario:
+
+      There might be a situation where you try to make someone their own manager (confusing, right?). In this case, the system will automatically adjust the hierarchy to avoid a loop. Here's what happens:
+
+      The original manager of the dragged employee becomes the manager of the dropped employee (the one you dropped on).
+      The dragged employee then reports to their new manager, who was previously the dropped employee's manager.
+      This way, the reporting structure remains clear and avoids circular reporting.
+
+        Hopefully this makes sense :)
+
+## Prerequisites
+Node.js LTS should be installed.
+
+## Installation
+
+Run below commands on your terminal:
+
+`git clone https://github.com/harsh-dev-066/happyfox-employee-taxonomy.git`
+
+`cd happyfox-employee-taxonomy` 
+
+`npm install`
+
+`npm run dev`
+
+## Technologies 
+
+- React JS
+- TypeScript
+- Vite
+- SCSS
+- Redux Toolkit
+- react-dnd
+- Axios
+- miragejs
+- Jest
