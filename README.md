@@ -35,7 +35,7 @@ The application is deployed on Netliy - [Employee Taxonomy](https://happyfox-emp
       The dragged employee then reports to their new manager, who was previously the dropped employee's manager.
       This way, the reporting structure remains clear and avoids circular reporting.
 
-        Hopefully this makes sense :)
+  #### Hopefully this makes sense :)
 
 ## Prerequisites
 Node.js LTS should be installed.
@@ -44,13 +44,13 @@ Node.js LTS should be installed.
 
 Run below commands on your terminal:
 
-`git clone https://github.com/harsh-dev-066/happyfox-employee-taxonomy.git`
+  `git clone https://github.com/harsh-dev-066/happyfox-employee-taxonomy.git`
 
-`cd happyfox-employee-taxonomy` 
+  `cd happyfox-employee-taxonomy` 
 
-`npm install`
+  `npm install`
 
-`npm run dev`
+  `npm run dev`
 
 ## Technologies 
 
